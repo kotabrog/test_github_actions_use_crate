@@ -19,9 +19,11 @@ jobs:
         working-directory: test_rust
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
+      - id: toolchain
+        uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: stable
           components: rustfmt
       - run: cargo test --all-features
       - run: cargo fmt --all --check
+      - run: echo "${{steps.toolchain.outputs.cachekey}} ${{steps.toolchain.outputs.name}}"
