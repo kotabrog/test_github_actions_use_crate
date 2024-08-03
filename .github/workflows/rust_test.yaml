@@ -20,9 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: toolchain
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@
         with:
-          toolchain: stable
           components: rustfmt
       - run: cargo test --all-features
       - run: cargo fmt --all --check
