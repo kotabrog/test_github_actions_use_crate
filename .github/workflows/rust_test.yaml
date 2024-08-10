@@ -23,6 +23,9 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt
+      - id: cache
+        uses: Swatinem/rust-cache@v2
       - run: cargo test --all-features
       - run: cargo fmt --all --check
       - run: echo "${{steps.toolchain.outputs.cachekey}} ${{steps.toolchain.outputs.name}}"
+      - run: echo "${{steps.cache.outputs.cache-hit}}"
