@@ -25,6 +25,8 @@ jobs:
           components: rustfmt
       - id: cache
         uses: Swatinem/rust-cache@v2
+        with:
+          workspace: test_rust
       - run: cargo test --all-features
       - run: cargo fmt --all --check
       - run: echo "${{steps.toolchain.outputs.cachekey}} ${{steps.toolchain.outputs.name}}"
