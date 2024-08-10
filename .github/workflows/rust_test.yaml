@@ -1,4 +1,4 @@
-name: test suite
+name: Rust CI
 
 on:
   push:
@@ -12,7 +12,7 @@ env:
 
 jobs:
   test:
-    name: cargo test
+    name: cargo test and fmt
     runs-on: ubuntu-latest
     defaults:
       run:

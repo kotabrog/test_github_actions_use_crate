@@ -1,5 +1,10 @@
+use rand::Rng;
+
 fn main() {
-    println!("Hello, world!");
+    let mut rng = rand::thread_rng();
+    let x: f64 = rng.gen();
+    let y = std::f64::consts::PI;
+    println!("Hello, world!! random num3: {}", x * y);
 }
 
 #[cfg(test)]
