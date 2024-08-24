@@ -27,7 +27,11 @@ jobs:
         uses: Swatinem/rust-cache@v2
         with:
           workspaces: test_rust
-      - run: cargo test --all-features
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-nextest
+      # - run: cargo test --all-features
+      - run: cargo nextest run --all-features
       - run: cargo fmt --all --check
       - run: echo "${{steps.toolchain.outputs.cachekey}} ${{steps.toolchain.outputs.name}}"
       - run: echo "${{steps.cache.outputs.cache-hit}}"
