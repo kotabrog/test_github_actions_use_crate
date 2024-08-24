@@ -25,7 +25,7 @@ jobs:
           components: rustfmt
       - uses: taiki-e/install-action@v2
         with:
-          tool: cargo-nextest@0.9.75
+          tool: cargo-nextest
       - id: cache
         uses: Swatinem/rust-cache@v2
         with:
