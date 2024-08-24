@@ -29,7 +29,7 @@ jobs:
           workspaces: test_rust
       - uses: taiki-e/install-action@v2
         with:
-          tool: cargo-nextest
+          tool: cargo-nextest@0.9.75
       # - run: cargo test --all-features
       - run: cargo nextest run --all-features
       - run: cargo fmt --all --check
