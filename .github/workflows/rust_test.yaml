@@ -23,17 +23,14 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt
-      - run: ls -la ~/.cargo/bin
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-nextest@0.9.75
       - id: cache
         uses: Swatinem/rust-cache@v2
         with:
           workspaces: test_rust
-      - run: ls -la ~/.cargo/bin
-      - uses: taiki-e/install-action@v2
-        with:
-          tool: cargo-nextest@0.9.75
       # - run: cargo test --all-features
-      - run: ls -la ~/.cargo/bin
       - run: cargo nextest run --all-features
       - run: cargo fmt --all --check
       - run: echo "${{steps.toolchain.outputs.cachekey}} ${{steps.toolchain.outputs.name}}"
